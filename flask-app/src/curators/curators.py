@@ -13,7 +13,7 @@ def home():
 @curators.route('/curators', methods=['GET'])
 def get_curators():
     cursor = db.get_db().cursor()
-    cursor.execute('select Name, CuratorID from Curators')
+    cursor.execute('select Name, Curator_ID from Curator')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
