@@ -5,6 +5,10 @@ from src import db
 
 curators = Blueprint('curators', __name__)
 
+@curators.route('/')
+def home():
+    return ('<h1>Hello from your curator page!!</h1>')
+
 # Get all curators from the DB
 @curators.route('/curators', methods=['GET'])
 def get_curators():

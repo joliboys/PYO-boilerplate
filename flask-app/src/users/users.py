@@ -5,6 +5,10 @@ from src import db
 
 users = Blueprint('users', __name__)
 
+@users.route('/')
+def home():
+    return ('<h1>Hello from your user page!!</h1>')
+
 # Get all users from the DB
 @users.route('/users', methods=['GET'])
 def get_users():
