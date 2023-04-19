@@ -102,7 +102,7 @@ insert into PostEngagement (Post_ID, Views, Interactions) values ('13', 656, 264
 insert into PostEngagement (Post_ID, Views, Interactions) values ('66', 661, 635);
 insert into PostEngagement (Post_ID, Views, Interactions) values ('70', 482, 894);
 insert into PostEngagement (Post_ID, Views, Interactions) values ('80', 267, 502);
-insert into PostEngagement (Post_ID, Views, Interactions) values ('3', 610, 243);
+insert into PostEngagement (Post_ID, Views, Interactions) values ('101', 610, 243);
 
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
