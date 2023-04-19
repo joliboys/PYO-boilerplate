@@ -13,7 +13,7 @@ def home():
 @users.route('/users', methods=['GET'])
 def get_users():
     cursor = db.get_db().cursor()
-    cursor.execute('select Username, User_ID, Phone from Users')
+    cursor.execute('select Username, User_ID, Phone from Profile')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()

@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `pyo`.'Curator' (
 );
 
 CREATE TABLE IF NOT EXISTS `pyo`.'Prompts' (
-    Prompt varchar(100) NOT NULL,
+    Prompt varchar(400) NOT NULL,
     Prompt_ID int PRIMARY KEY AUTO_INCREMENT
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `pyo`.'Genre' (
 
 CREATE TABLE IF NOT EXISTS `pyo`.'Songs' (
     Genre_ID varchar(100) NOT NULL,
-    ARTIST_ID varchar(100) NOT NULL,
+    Artist_ID varchar(100) NOT NULL,
     # Song ID should be the same one as the Spotify one
     Song_ID varchar(100) NOT NULL PRIMARY KEY,
     Name varchar(100) NOT NULL,
