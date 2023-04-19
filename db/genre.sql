@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into MOCK_DATA (Genre, Genre_ID) values ('ante ipsum', 1);
 insert into MOCK_DATA (Genre, Genre_ID) values ('iaculis justo in', 2);
 insert into MOCK_DATA (Genre, Genre_ID) values ('pede lobortis', 3);
@@ -48,3 +53,6 @@ insert into MOCK_DATA (Genre, Genre_ID) values ('parturient', 47);
 insert into MOCK_DATA (Genre, Genre_ID) values ('lacus morbi sem', 48);
 insert into MOCK_DATA (Genre, Genre_ID) values ('parturient', 49);
 insert into MOCK_DATA (Genre, Genre_ID) values ('curae', 50);
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

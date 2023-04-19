@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into MOCK_DATA (artist_id, name) values ('6ftBBGNSXQEsttk4RVSVY', 'Vanni Di Batista');
 insert into MOCK_DATA (artist_id, name) values ('4fyZYOJMCPEsfhc8VBDR4', 'Trix Leil');
 insert into MOCK_DATA (artist_id, name) values ('3niYJMJWUIIjwmq4UFC5Z', 'Jennee Brickdale');
@@ -998,3 +1003,6 @@ insert into MOCK_DATA (artist_id, name) values ('1beDLOWNJXUvmxg90O4W0', 'Carita
 insert into MOCK_DATA (artist_id, name) values ('5bpMMYQDPJVxlsr1IHEBG', 'Elfie Roeby');
 insert into MOCK_DATA (artist_id, name) values ('6qlFVDFRYIEqgtd8STNM8', 'Hildagard Frensch');
 insert into MOCK_DATA (artist_id, name) values ('7bmCKGNITECguas8MPBLQ', 'Derwin Geraldez');
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

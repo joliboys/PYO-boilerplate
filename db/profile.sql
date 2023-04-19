@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into profile (Username, User_ID, Phone) values ('kashton0', 1, '164-339-7420');
 insert into profile (Username, User_ID, Phone) values ('jkobpal1', 2, '914-656-9672');
 insert into profile (Username, User_ID, Phone) values ('csycamore2', 3, '589-832-0864');
@@ -998,3 +1003,6 @@ insert into profile (Username, User_ID, Phone) values ('jdebellro', 997, '724-76
 insert into profile (Username, User_ID, Phone) values ('aweallrp', 998, '425-939-0937');
 insert into profile (Username, User_ID, Phone) values ('wpoltunrq', 999, '415-385-3032');
 insert into profile (Username, User_ID, Phone) values ('gsickamorerr', 1000, '669-898-6706');
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

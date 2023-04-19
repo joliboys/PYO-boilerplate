@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into MOCK_DATA (Name, Curator_ID) values ('Illa Le Grice', 1);
 insert into MOCK_DATA (Name, Curator_ID) values ('Frank Michelle', 2);
 insert into MOCK_DATA (Name, Curator_ID) values ('Hieronymus Cannicott', 3);
@@ -998,3 +1003,6 @@ insert into MOCK_DATA (Name, Curator_ID) values ('Angy Bracey', 997);
 insert into MOCK_DATA (Name, Curator_ID) values ('Nevin Wilshere', 998);
 insert into MOCK_DATA (Name, Curator_ID) values ('Nichol Draysey', 999);
 insert into MOCK_DATA (Name, Curator_ID) values ('Philip Cheeney', 1000);
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

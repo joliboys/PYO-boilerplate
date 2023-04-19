@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into PostEngagement (Post_ID, Views, Interactions) values (null, 241, 676);
 insert into PostEngagement (Post_ID, Views, Interactions) values (null, 530, 676);
 insert into PostEngagement (Post_ID, Views, Interactions) values (null, 794, 978);
@@ -498,3 +503,6 @@ insert into PostEngagement (Post_ID, Views, Interactions) values (null, 172, 800
 insert into PostEngagement (Post_ID, Views, Interactions) values (null, 578, 299);
 insert into PostEngagement (Post_ID, Views, Interactions) values (null, 815, 826);
 insert into PostEngagement (Post_ID, Views, Interactions) values (null, 917, 787);
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

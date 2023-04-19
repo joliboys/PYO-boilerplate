@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into MOCK_DATA (Song_ID, Name, Artist_ID, Genre_ID, gender, ip_address) values (1, 'Nickolaus', 'Pearle', 'npearle0@biblegateway.com', 'Male', '67.148.1.226');
 insert into MOCK_DATA (Song_ID, Name, Artist_ID, Genre_ID, gender, ip_address) values (2, 'Farrand', 'Gorringe', 'fgorringe1@cnbc.com', 'Female', '213.202.10.70');
 insert into MOCK_DATA (Song_ID, Name, Artist_ID, Genre_ID, gender, ip_address) values (3, 'Johannah', 'Ivison', 'jivison2@delicious.com', 'Female', '11.69.19.168');
@@ -998,3 +1003,6 @@ insert into MOCK_DATA (Song_ID, Name, Artist_ID, Genre_ID, gender, ip_address) v
 insert into MOCK_DATA (Song_ID, Name, Artist_ID, Genre_ID, gender, ip_address) values (998, 'Donetta', 'Giffen', 'dgiffenrp@infoseek.co.jp', 'Female', '254.202.149.94');
 insert into MOCK_DATA (Song_ID, Name, Artist_ID, Genre_ID, gender, ip_address) values (999, 'Xena', 'Heaseman', 'xheasemanrq@dedecms.com', 'Female', '147.195.177.156');
 insert into MOCK_DATA (Song_ID, Name, Artist_ID, Genre_ID, gender, ip_address) values (1000, 'Ninette', 'Ivins', 'nivinsrr@amazonaws.com', 'Agender', '60.223.135.236');
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

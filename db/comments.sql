@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into MOCK_DATA (Comment, Comment_ID, User_ID) values ('Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.', 1, null);
 insert into MOCK_DATA (Comment, Comment_ID, User_ID) values ('Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', 2, null);
 insert into MOCK_DATA (Comment, Comment_ID, User_ID) values ('Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', 3, null);
@@ -1098,3 +1103,6 @@ insert into MOCK_DATA (Comment, Comment_ID, User_ID) values (null, null, 997);
 insert into MOCK_DATA (Comment, Comment_ID, User_ID) values (null, null, 998);
 insert into MOCK_DATA (Comment, Comment_ID, User_ID) values (null, null, 999);
 insert into MOCK_DATA (Comment, Comment_ID, User_ID) values (null, null, 1000);
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

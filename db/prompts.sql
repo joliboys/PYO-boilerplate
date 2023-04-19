@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into prompts (Prompt, Prompt_ID) values ('Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 1);
 insert into prompts (Prompt, Prompt_ID) values ('Integer non velit.', 2);
 insert into prompts (Prompt, Prompt_ID) values ('Ut at dolor quis odio consequat varius.', 3);
@@ -98,3 +103,6 @@ insert into prompts (Prompt, Prompt_ID) values ('Etiam vel augue.', 97);
 insert into prompts (Prompt, Prompt_ID) values ('Etiam faucibus cursus urna.', 98);
 insert into prompts (Prompt, Prompt_ID) values ('Nullam porttitor lacus at turpis.', 99);
 insert into prompts (Prompt, Prompt_ID) values ('Nulla tellus.', 100);
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
