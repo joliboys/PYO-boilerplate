@@ -7,7 +7,7 @@ artists = Blueprint('artists', __name__)
 
 # Get all customers from the DB
 @artists.route('/artists', methods=['GET'])
-def get_customers():
+def get_artists():
     cursor = db.get_db().cursor()
     cursor.execute()
     row_headers = [x[0] for x in cursor.description]

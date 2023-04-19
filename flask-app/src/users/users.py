@@ -5,9 +5,9 @@ from src import db
 
 users = Blueprint('users', __name__)
 
-# Get all customers from the DB
+# Get all users from the DB
 @artists.route('/users', methods=['GET'])
-def get_customers():
+def get_users():
     cursor = db.get_db().cursor()
     cursor.execute()
     row_headers = [x[0] for x in cursor.description]
