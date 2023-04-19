@@ -6,7 +6,7 @@ from src import db
 users = Blueprint('users', __name__)
 
 # Get all users from the DB
-@artists.route('/users', methods=['GET'])
+@users.route('/users', methods=['GET'])
 def get_users():
     cursor = db.get_db().cursor()
     cursor.execute()
