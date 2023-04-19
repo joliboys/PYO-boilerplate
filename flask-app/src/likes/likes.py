@@ -5,18 +5,12 @@ from src import db
 
 Likes = Blueprint('likes', __name__, url_prefix='/likes')
 
-query_get_songs = '''SELECT Songs.Song_ID 
-                     FROM Likes 
-                     JOIN Posts ON Likes.Post_ID = Posts.Post_ID 
-                     JOIN Songs ON (Songs.Song_ID = Posts.Song_ID 
-                                OR Songs.Song_ID = Posts.Song_ID2 
-                                OR Songs.Song_ID = Posts.Song_ID3 
-                                OR Songs.Song_ID = Posts.Song_ID4) 
-                     WHERE Likes.User_ID = {};'''
+query_get_songs = '''SELECT Post_ID from Likes
+    Where Likes.User_ID = {}};'''
 
-# Get all songs from liked posts
-@Likes.route('/<int:user_id>', methods=['GET'])
-def get_users(user_id):
+# Get all liked posts
+@Likes.route('getlikedposts/<int:user_id>', methods=['GET'])
+def get_liked_posts(user_id):
     cursor = db.get_db().cursor()
     cursor.execute(query_get_songs.format(user_id))
     row_headers = [x[0] for x in cursor.description]

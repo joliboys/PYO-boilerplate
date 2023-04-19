@@ -2,10 +2,11 @@ from flask import Blueprint, request, jsonify, make_response
 import json
 from src import db
 
+posts = Blueprint('Posts', __name__)
 
 # delete a specific post
 
-@posts.route('/posts/<int:post_id>', methods=['DELETE'])
+@posts.route('/deletepost/<int:post_id>', methods=['DELETE'])
 def delete_post(post_id):
     cursor = db.get_db().cursor()
     cursor.execute('DELETE FROM posts WHERE id = %s', (post_id,))
@@ -15,7 +16,7 @@ def delete_post(post_id):
 
 # post a new post
 
-@posts.route('/posts', methods=['POST'])
+@posts.route('/postpost', methods=['POST'])
 def create_post():
     # Get the data from the request
     data = request.get_json()
@@ -32,7 +33,7 @@ def create_post():
 
 # update an existing post
 
-@posts.route('/posts/<int:post_id>', methods=['PUT'])
+@posts.route('/updatepost/<int:post_id>', methods=['PUT'])
 def update_post(post_id):
     # Get the data from the request
     data = request.get_json()
