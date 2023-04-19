@@ -12,6 +12,7 @@ def delete_post(post_id):
     db.get_db().commit()
     return 'Post {} has been deleted.'.format(post_id)
 
+
 # post a new post
 
 @posts.route('/posts', methods=['POST'])
@@ -27,6 +28,7 @@ def create_post():
 
     # Return a response indicating that the post has been created
     return jsonify({'message': 'Post created successfully.'})
+
 
 # update an existing post
 
