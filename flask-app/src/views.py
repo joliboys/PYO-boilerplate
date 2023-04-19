@@ -16,4 +16,4 @@ def home():
 # as above, it just returns a simple string. 
 @views.route('/test')
 def tester():
-    return "<h1>this is a test!</h1>"
+    return "<h1>this is a views test!</h1>"
