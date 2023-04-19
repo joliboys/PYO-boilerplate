@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into Songs (Song_ID, Name, artist_ID, Genre_ID) values ('4lqKRKXULMMcfit48DU14', 'cursus', '6mnFSLEOJFXnhfu1GJEJG', '39');
 insert into Songs (Song_ID, Name, artist_ID, Genre_ID) values ('7alVPPJXKSVwbdc284STJ', 'rutrum ac lobortis vel', '2buOUUZBNUYwfcn5G2ASK', '41');
 insert into Songs (Song_ID, Name, artist_ID, Genre_ID) values ('7gtPFLHPLIRfgzk8BNRTB', 'risus', '7pgMHXXPSDHteiv3FOXPP', '31');
@@ -48,3 +53,6 @@ insert into Songs (Song_ID, Name, artist_ID, Genre_ID) values ('1vmFYEOOUJNqsyu6
 insert into Songs (Song_ID, Name, artist_ID, Genre_ID) values ('8rpAHLWYJSGqhqp8Y92L3', 'est', '4acPWGJJCLFlqcs79479W', '32');
 insert into Songs (Song_ID, Name, artist_ID, Genre_ID) values ('9avOPDHIVNNhqko5FV03D', 'vitae consectetuer eget rutrum', '0nlPZHCUDDZspjj5E4XS5', '5');
 insert into Songs (Song_ID, Name, artist_ID, Genre_ID) values ('0maQJXJXLMWdyfd85QLRC', 'volutpat in', '9snVUEGTHJNxpjj3MNLP4', '3');
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

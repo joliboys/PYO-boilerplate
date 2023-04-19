@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into comments (Comment, Comment_ID, User_ID) values ('Synergized multi-tasking success', 1, '23');
 insert into comments (Comment, Comment_ID, User_ID) values ('Multi-layered tangible time-frame', 2, '5');
 insert into comments (Comment, Comment_ID, User_ID) values ('Enterprise-wide non-volatile data-warehouse', 3, '45');
@@ -148,3 +153,6 @@ insert into comments (Comment, Comment_ID, User_ID) values (null, null, 47);
 insert into comments (Comment, Comment_ID, User_ID) values (null, null, 48);
 insert into comments (Comment, Comment_ID, User_ID) values (null, null, 49);
 insert into comments (Comment, Comment_ID, User_ID) values (null, null, 50);
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

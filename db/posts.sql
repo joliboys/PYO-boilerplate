@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into posts (Genre_ID, Post_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) values ('1', 1, '61', '1yoCMAYBOGTccyh4TK03G', '1arQPMWYCTOlijv24XGQ6', '0yuWHUHZRXDbpho3Y3IKL', '6ehHSRXGKJYfxji5M8M57', '35', '4/18/2022');
 insert into posts (Genre_ID, Post_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) values ('27', 2, '65', '7xzIWSHYAUMiffg6KKJKW', '4gwVRYTGNQFnoff9XHE8O', '0ytAGACISSAjyom36KT47', '0qsPUXMFFKKauhx80SCGE', '1', '5/24/2022');
 insert into posts (Genre_ID, Post_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) values ('21', 3, '53', '6ehHSRXGKJYfxji5M8M57', '7gmKNFEWKNVaxhp5ORKOP', '3wyKRASQWDWjfgp1NO04T', '9smBNGIZNUQuehe1HA82O', '30', '3/12/2023');
@@ -98,3 +103,6 @@ insert into posts (Genre_ID, Post_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, So
 insert into posts (Genre_ID, Post_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) values ('43', 98, '71', '6imCXVGGJFZsviy0CCX4F', '7spIRWYHYGEvent5BTRVN', '9smBNGIZNUQuehe1HA82O', '7aeRPBCIWYVtvfs95Z6FK', '40', '2/25/2023');
 insert into posts (Genre_ID, Post_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) values ('15', 99, '49', '3kiPGJKYQGRivyj7BA7GK', '4gwVRYTGNQFnoff9XHE8O', '3nbUUYACBVAfhga8WGN6Z', '7spIRWYHYGEvent5BTRVN', '13', '12/7/2022');
 insert into posts (Genre_ID, Post_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) values ('14', 100, '25', '3eeKUFQATPLlovy4STS84', '1ypKMMSJAHQkuuo92QDEH', '2uqGONHRRZRqisj08FKG0', '4auCNCLDVHYwubn8NEXDA', '21', '1/22/2023');
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

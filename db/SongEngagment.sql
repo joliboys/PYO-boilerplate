@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into SongEngagement (Song_ID, listens, views, numofposts) values ('3eeKUFQATPLlovy4STS84', 1731, 2796, 901);
 insert into SongEngagement (Song_ID, listens, views, numofposts) values ('0buUKXPVBXHpcid16L1VI', 2103, 3302, 464);
 insert into SongEngagement (Song_ID, listens, views, numofposts) values ('7xzIWSHYAUMiffg6KKJKW', 1665, 745, 157);
@@ -98,3 +103,6 @@ insert into SongEngagement (Song_ID, listens, views, numofposts) values ('2syQXB
 insert into SongEngagement (Song_ID, listens, views, numofposts) values ('6imCXVGGJFZsviy0CCX4F', 742, 4796, 5);
 insert into SongEngagement (Song_ID, listens, views, numofposts) values ('6tbUZFHBBPPhoum0C2JWR', 2097, 1286, 323);
 insert into SongEngagement (Song_ID, listens, views, numofposts) values ('9qjCFMHXWVGtkps6LSLKT', 1278, 2642, 223);
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

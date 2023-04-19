@@ -1,3 +1,8 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE `pyo`;
+
 insert into likes (User_ID, Post_ID) values ('46', '40');
 insert into likes (User_ID, Post_ID) values ('50', '27');
 insert into likes (User_ID, Post_ID) values ('5', '98');
@@ -98,3 +103,6 @@ insert into likes (User_ID, Post_ID) values ('13', '28');
 insert into likes (User_ID, Post_ID) values ('35', '89');
 insert into likes (User_ID, Post_ID) values ('20', '2');
 insert into likes (User_ID, Post_ID) values ('41', '85');
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
