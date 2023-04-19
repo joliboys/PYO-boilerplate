@@ -10,10 +10,10 @@ views = Blueprint('views', __name__)
 # we simply return a string.  
 @views.route('/')
 def home():
-    return ('<h1>Hello from your web app!!</h1>')
+    return ('<h1>Hello from your PYO web app!!</h1>')
 
 # This is a sample route for the /test URI.  
 # as above, it just returns a simple string. 
 @views.route('/test')
 def tester():
-    return "<h1>this is a views test!</h1>"
+    return "<h1>this is a test of the views route!</h1>"
