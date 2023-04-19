@@ -5,11 +5,15 @@ from src import db
 
 curators = Blueprint('curators', __name__)
 
+@curators.route('/')
+def home():
+    return ('<h1>Hello from your curator page!!</h1>')
+
 # Get all curators from the DB
 @curators.route('/curators', methods=['GET'])
 def get_curators():
     cursor = db.get_db().cursor()
-    cursor.execute('select Name, CuratorID from Curators')
+    cursor.execute('select Name, Curator_ID from Curator')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()

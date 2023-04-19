@@ -5,11 +5,15 @@ from src import db
 
 artists = Blueprint('artists', __name__)
 
+@artists.route('/')
+def home():
+    return ('<h1>Hello from your artist page!!</h1>')
+
 # Get all artists from the DB
 @artists.route('/artists', methods=['GET'])
 def get_artists():
     cursor = db.get_db().cursor()
-    cursor.execute('select Artist_id, Name from Artists')
+    cursor.execute('select Artist_id, Name from Artist')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()

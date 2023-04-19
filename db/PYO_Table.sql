@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `pyo`.'Curator' (
 );
 
 CREATE TABLE IF NOT EXISTS `pyo`.'Prompts' (
-    Prompt varchar(100) NOT NULL,
+    Prompt varchar(400) NOT NULL,
     Prompt_ID int PRIMARY KEY AUTO_INCREMENT
 );
 
