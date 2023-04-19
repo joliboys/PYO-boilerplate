@@ -9,7 +9,7 @@ artists = Blueprint('artists', __name__)
 @artists.route('/artists', methods=['GET'])
 def get_artists():
     cursor = db.get_db().cursor()
-    cursor.execute()
+    cursor.execute('select Name, ArtistID')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()

@@ -9,8 +9,7 @@ curators = Blueprint('curators', __name__)
 @curators.route('/curators', methods=['GET'])
 def get_curators():
     cursor = db.get_db().cursor()
-    cursor.execute('select company, last_name,\
-        first_name, job_title, business_phone from customers')
+    cursor.execute('select Name, CuratorID')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
