@@ -5,7 +5,7 @@ from src import db
 
 curators = Blueprint('curators', __name__)
 
-# Get all customers from the DB
+# Get all curators from the DB
 @curators.route('/curators', methods=['GET'])
 def get_curators():
     cursor = db.get_db().cursor()
