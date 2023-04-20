@@ -60,7 +60,7 @@ def delete_comment(comment_id):
 # post a new comment
 
 @posts.route('/postcomment', methods=['POST'])
-def create_post():
+def create_comment():
     # Get the data from the request
     data = request.get_json()
 

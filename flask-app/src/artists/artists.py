@@ -52,8 +52,8 @@ def create_song():
 
     # Insert the new song into the database
     cursor = db.get_db().cursor()
-    cursor.execute('INSERT INTO Songs (Genre_ID, Artist_ID, Name) VALUES (%s, %s, %s)',
-               (data['Genre_ID'], data['Artist_ID'], data['Name']))
+    cursor.execute('INSERT INTO Songs (Song_ID, Genre_ID, Artist_ID, Name) VALUES (%s, %s, %s, %s)',
+               (data['Song_ID'], data['Genre_ID'], data['Artist_ID'], data['Name']))
     db.get_db().commit()
 
     # Return a response indicating that the post has been created
