@@ -105,6 +105,9 @@ CREATE TABLE IF NOT EXISTS `pyo`.'Comments' (
     Comment varchar(150) NOT NULL,
     Comment_ID int PRIMARY KEY AUTO_INCREMENT,
     User_ID int not null,
+    Post_ID int not null,
+    foreign key(Post_ID),
+        references Posts(Post_ID),
     foreign key(User_ID)
                       references Profile(User_ID)
 );

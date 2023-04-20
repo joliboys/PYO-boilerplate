@@ -66,12 +66,12 @@ def create_comment():
 
     # Insert the new comment into the database
     cursor = db.get_db().cursor()
-    cursor.execute('INSERT INTO Comments (Comment, User_ID) VALUES (%s, %s)',
-               (data['Comment'], data['User_ID']))
+    cursor.execute('INSERT INTO Comments (Comment, User_ID, Post_ID) VALUES (%s, %s, %s)',
+               (data['Comment'], data['User_ID'], data['Post_ID']))
     db.get_db().commit()
 
-    # Return a response indicating that the post has been created
-    return jsonify({'message': 'Post created successfully.'})
+    # Return a response indicating that the comment has been created
+    return jsonify({'message': 'Comment created successfully.'})
 
 
 # update an existing post

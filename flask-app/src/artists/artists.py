@@ -61,7 +61,7 @@ def create_song():
 
 # delete a song
 
-@artists.route('/deletesong/<int:song_id>', methods=['DELETE'])
+@artists.route('/deletesong<int:song_id>', methods=['DELETE'])
 def delete_song(song_id):
     # Get a cursor object from the database
     cursor = db.get_db().cursor()
