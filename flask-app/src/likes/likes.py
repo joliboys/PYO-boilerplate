@@ -9,7 +9,7 @@ query_get_songs = '''SELECT Post_ID from Likes
     Where Likes.User_ID = {}};'''
 
 # Get all liked posts
-@Likes.route('getlikedposts/<int:user_id>', methods=['GET'])
+@Likes.route('/getlikedposts<int:user_id>', methods=['GET'])
 def get_liked_posts(user_id):
     cursor = db.get_db().cursor()
     cursor.execute(query_get_songs.format(user_id))
