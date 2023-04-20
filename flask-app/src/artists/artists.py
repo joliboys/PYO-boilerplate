@@ -29,7 +29,7 @@ query_song_eng = '''SELECT listens, views FROM SongEngagement
 
 # Get song engagement
 @artists.route('/songeng<int:songid>', methods=['GET'])
-def get_artists():
+def get_songeng():
     cursor = db.get_db().cursor()
     cursor.execute(query_song_eng)
     row_headers = [x[0] for x in cursor.description]
