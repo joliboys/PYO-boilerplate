@@ -118,7 +118,11 @@ def get_liked_posts(user_id):
 @posts.route('/genres', methods=['GET'])
 def get_genre():
     cursor = db.get_db().cursor()
+<<<<<<< HEAD
+    cursor.execute("SELECT DISTINCT Name FROM Genre")
+=======
     cursor.execute('select distinct name from Genre')
+>>>>>>> 96becd3c629f127457cf3cc51352e319402fdbc7
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()

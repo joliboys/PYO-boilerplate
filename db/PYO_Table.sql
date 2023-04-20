@@ -76,13 +76,17 @@ CREATE TABLE IF NOT EXISTS `pyo`.'Posts' (
     foreign key(User_ID)
                       references Profile(User_ID),
     foreign key(Song_ID)
-                   references Songs(Song_ID),
+                   references Songs(Song_ID)
+                   ON DELETE CASCADE,
     foreign key(Song_ID2)
-                   references Songs(Song_ID),
+                   references Songs(Song_ID)
+                   ON DELETE CASCADE,
     foreign key(Song_ID3)
-                   references Songs(Song_ID),
+                   references Songs(Song_ID)
+                   ON DELETE CASCADE,
     foreign key(Song_ID4)
                    references Songs(Song_ID)
+                   ON DELETE CASCADE
 
 );
 
@@ -93,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `pyo`.'SongEngagement' (
     numofposts int NOT NULL,
     foreign key(Song_ID)
                       references Songs(Song_ID)
+                      ON DELETE CASCADE
 );
 
 
