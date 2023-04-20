@@ -9,6 +9,20 @@ artists = Blueprint('artists', __name__)
 def home():
     return ('<h1>Hello from your artist page!!</h1>')
 
+@artists.route('/songs', methods=['GET'])
+def get_songs():
+    cursor = db.get_db().cursor()
+    cursor.execute('select distinct name from Songs')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 # Get all artists from the DB
 @artists.route('/artists', methods=['GET'])
 def get_artists():
@@ -52,8 +66,8 @@ def create_song():
     current_app.logger.info(data)
     # Insert the new song into the database
     cursor = db.get_db().cursor()
-    cursor.execute('INSERT INTO Songs (Song_ID, Genre_ID, Artist_ID, Name) VALUES (%s, %s, %s, %s)',
-               (data['Song_ID'], data['Genre_ID'], data['Artist_ID'], data['Name']))
+    cursor.execute('INSERT INTO Songs (Genre_ID, Artist_ID, Name) VALUES (%s, %s, %s)',
+               (data['Genre_ID'], data['Artist_ID'], data['Name']))
     db.get_db().commit()
 
     # Return a response indicating that the post has been created
