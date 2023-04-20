@@ -99,3 +99,37 @@ def get_eng(Post_ID):
         json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
+
+# Get posts with their songs in it
+@artists.route('/songposts<int:Song_ID>', methods=['GET'])
+def get_songposts(Song_ID):
+    cursor = db.get_db().cursor()
+    query = '''SELECT Post_ID
+                FROM Posts
+                WHERE Song_ID IN (
+                    SELECT Song_ID
+                    FROM Songs
+                    WHERE Song_ID = {}
+                ) OR Song_ID2 IN (
+                    SELECT Song_ID
+                    FROM Songs
+                    WHERE Song_ID = {}
+                ) OR Song_ID3 IN (
+                    SELECT Song_ID
+                    FROM Songs
+                    WHERE Song_ID = {}
+                ) OR Song_ID4 IN (
+                    SELECT Song_ID
+                    FROM Songs
+                    WHERE Song_ID = {})'''
+    cursor.execute(query, (Song_ID))
+
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
