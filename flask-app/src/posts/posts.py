@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -39,10 +39,12 @@ def delete_post(post_id):
 def create_post():
     # Get the data from the request
     data = request.get_json()
+    current_app.logger.info(data)
+
     # Insert the new post into the database
     cursor = db.get_db().cursor()
-    cursor.execute('INSERT INTO Posts (Genre_ID, Prompt_ID, Song_ID1, Song_ID2, Song_ID3, Song_ID4, User_ID) VALUES (%s, %s, %s, %s, %s, %s, %s)',
-               (data['Genre_ID'], data['Prompt_ID'], data['Song_ID1'], data['Song_ID2'], data['Song_ID3'], data['Song_ID4'], data['User_ID']))
+    cursor.execute('INSERT INTO Posts (Genre_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', 
+                   (data['Genre_ID'], data['Prompt_ID'], data['Song_ID'], data['Song_ID2'], data['Song_ID3'], data['Song_ID4'], data['User_ID'], data['timestamp']))
     db.get_db().commit()
     # Return a response indicating that the post has been created
     return jsonify({'message': 'Post created successfully.'})
