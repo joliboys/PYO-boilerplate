@@ -4,6 +4,26 @@ from src import db
 
 posts = Blueprint('Posts', __name__)
 
+@posts.route('/')
+def home():
+    return ('<h1>Hello from your posts page!!</h1>')
+
+# Get all users from the DB
+
+@posts.route('/posts', methods=['GET'])
+def get_posts():
+    cursor = db.get_db().cursor()
+    cursor.execute('select * from Posts')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 # delete a specific post
 
 @posts.route('/deletepost/<int:post_id>', methods=['DELETE'])
@@ -16,7 +36,7 @@ def delete_post(post_id):
 
 # post a new post
 
-@posts.route('/postpost', methods=['POST'])
+@posts.route('/createpost', methods=['POST'])
 def create_post():
     # Get the data from the request
     data = request.get_json()
