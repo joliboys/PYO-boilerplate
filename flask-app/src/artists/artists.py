@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -49,7 +49,7 @@ def get_songeng(Song_ID):
 def create_song():
     # Get the data from the request
     data = request.get_json()
-
+    current_app.logger.info(data)
     # Insert the new song into the database
     cursor = db.get_db().cursor()
     cursor.execute('INSERT INTO Songs (Song_ID, Genre_ID, Artist_ID, Name) VALUES (%s, %s, %s, %s)',
