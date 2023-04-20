@@ -81,7 +81,7 @@ def get_eng(Post_ID):
     cursor = db.get_db().cursor()
 
     # use cursor to query the database for the list of interactions
-    cursor.execute("SELECT Views, Interactions FROM PostEngagement WHERE Song_ID = %s", (Post_ID))
+    cursor.execute("SELECT Views, Interactions FROM PostEngagement WHERE Post_ID = %s", (Post_ID))
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]
