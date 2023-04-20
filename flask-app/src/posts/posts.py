@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -39,13 +39,17 @@ def delete_post(post_id):
 def create_post():
     # Get the data from the request
     data = request.get_json()
+    current_app.logger.info(data)
+
     # Insert the new post into the database
     cursor = db.get_db().cursor()
-    cursor.execute('INSERT INTO Posts (Genre_ID, Prompt_ID, Song_ID1, Song_ID2, Song_ID3, Song_ID4, User_ID) VALUES (%s, %s, %s, %s, %s, %s, %s)',
-               (data['Genre_ID'], data['Prompt_ID'], data['Song_ID1'], data['Song_ID2'], data['Song_ID3'], data['Song_ID4'], data['User_ID']))
+    cursor.execute('INSERT INTO Posts (Genre_ID, Prompt_ID, Song_ID, Song_ID2, Song_ID3, Song_ID4, User_ID, timestamp) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', 
+                   (data['Genre_ID'], data['Prompt_ID'], data['Song_ID'], data['Song_ID2'], data['Song_ID3'], data['Song_ID4'], data['User_ID'], data['timestamp']))
     db.get_db().commit()
     # Return a response indicating that the post has been created
     return jsonify({'message': 'Post created successfully.'})
+
+
 
 # update an existing post
 
@@ -78,12 +82,11 @@ def create_comment():
     data = request.get_json()
     # Insert the new comment into the database
     cursor = db.get_db().cursor()
-    cursor.execute('INSERT INTO Comments (Comment, User_ID, Post_ID) VALUES (%s, %s, %s)',
-               (data['Comment'], data['User_ID'], data['Post_ID']))
+    cursor.execute('INSERT INTO Comments (Comment, User_ID) VALUES (%s, %s)',
+               (data['Comment'], data['User_ID']))
     db.get_db().commit()
-
-    # Return a response indicating that the comment has been created
-    return jsonify({'message': 'Comment created successfully.'})
+    # Return a response indicating that the post has been created
+    return jsonify({'message': 'Post created successfully.'})
 
 # update an existing comment
 
@@ -118,7 +121,7 @@ def get_liked_posts(user_id):
 @posts.route('/genres', methods=['GET'])
 def get_genre():
     cursor = db.get_db().cursor()
-    cursor.execute('select distinct name from Genre')
+    cursor.execute('select distinct name, Genre_ID from Genre')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -132,7 +135,7 @@ def get_genre():
 @posts.route('/songs', methods=['GET'])
 def get_songs():
     cursor = db.get_db().cursor()
-    cursor.execute('select distinct name from Songs')
+    cursor.execute('select distinct name, Song_ID from Songs')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -146,7 +149,7 @@ def get_songs():
 @posts.route('/prompts', methods=['GET'])
 def get_prompts():
     cursor = db.get_db().cursor()
-    cursor.execute('select distinct Prompt from Prompts')
+    cursor.execute('select distinct * from Prompts')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
