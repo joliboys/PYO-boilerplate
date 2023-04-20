@@ -26,10 +26,10 @@ def get_posts():
 
 # delete a specific post
 
-@posts.route('/deletepost/<int:post_id>', methods=['DELETE'])
+@posts.route('/deletepost<int:post_id>', methods=['DELETE'])
 def delete_post(post_id):
     cursor = db.get_db().cursor()
-    cursor.execute('DELETE FROM Posts WHERE id = %s', (post_id,))
+    cursor.execute('DELETE FROM Posts WHERE Post_ID = %s', (post_id,))
     db.get_db().commit()
     return 'Post {} has been deleted.'.format(post_id)
 
@@ -51,24 +51,24 @@ def create_post():
 
 # update an existing post
 
-@posts.route('/updatepost/<int:post_id>', methods=['PUT'])
-def update_post(post_id):
+@posts.route('/updatepost', methods=['PUT'])
+def update_post():
     # Get the data from the request
     data = request.get_json()
     # Update the post in the database
     cursor = db.get_db().cursor()
-    cursor.execute('UPDATE Posts SET Genre_ID = %s, Prompt_ID = %s, Song_ID1 = %s, Song_ID2 = %s, Song_ID3 = %s, Song_ID4 = %s, User_ID = %s WHERE Post_ID = %s',
-               (data['Genre_ID'], data['Prompt_ID'], data['Song_ID1'], data['Song_ID2'], data['Song_ID3'], data['Song_ID4'], data['User_ID'], post_id))
+    cursor.execute('UPDATE Posts SET Genre_ID = %s, Prompt_ID = %s, Song_ID = %s, Song_ID2 = %s, Song_ID3 = %s, Song_ID4 = %s, User_ID = %s WHERE Post_ID = %s',
+               (data['Genre_ID'], data['Prompt_ID'], data['Song_ID'], data['Song_ID2'], data['Song_ID3'], data['Song_ID4'], data['User_ID'], data['Post_ID']))
     db.get_db().commit()
     # Return a response indicating that the post has been updated
     return jsonify({'message': 'Post updated successfully.'})
 
 # delete a specific comment
 
-@posts.route('/delcomment/<int:comment_id>', methods=['DELETE'])
+@posts.route('/delcomment<int:comment_id>', methods=['DELETE'])
 def delete_comment(comment_id):
     cursor = db.get_db().cursor()
-    cursor.execute('DELETE FROM comments WHERE id = %s', (comment_id,))
+    cursor.execute('DELETE FROM Comments WHERE Comment_ID = %s', (comment_id,))
     db.get_db().commit()
     return 'comment {} has been deleted.'.format(comment_id)
 
@@ -89,14 +89,14 @@ def create_comment():
 
 # update an existing comment
 
-@posts.route('/updatecomment<int:Comment_ID>', methods=['PUT'])
-def update_comment(Comment_id):
+@posts.route('/updatecomment', methods=['PUT'])
+def update_comment():
     # Get the data from the request
     data = request.get_json()
     # Update the post in the database
     cursor = db.get_db().cursor()
-    cursor.execute('UPDATE Comments SET Comment = %s, WHERE Comment_ID = %s',
-               (data['Comment'], Comment_id))
+    cursor.execute('UPDATE Comments SET Comment = %s WHERE Comment_ID = %s',
+               (data['Comment'], data['Comment_ID']))
     db.get_db().commit()
     # Return a response indicating that the post has been updated
     return jsonify({'message': 'Post updated successfully.'})
