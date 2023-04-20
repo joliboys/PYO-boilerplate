@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `pyo`.'Posts' (
     Song_ID3 varchar(100) NOT NULL,
     Song_ID4 varchar(100) NOT NULL,
     User_ID int not null,
-    timestamp datetime not null,
+    timestamp datetime DEFAULT CURRENT_TIMESTAMP not null,
     foreign key(Prompt_ID)
                       references Prompts(prompt_id),
     foreign key(Genre_ID)

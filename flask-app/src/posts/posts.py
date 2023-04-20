@@ -121,7 +121,7 @@ def get_liked_posts(user_id):
 @posts.route('/genres', methods=['GET'])
 def get_genre():
     cursor = db.get_db().cursor()
-    cursor.execute('select distinct name from Genre')
+    cursor.execute('select distinct name, Genre_ID from Genre')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -135,7 +135,7 @@ def get_genre():
 @posts.route('/songs', methods=['GET'])
 def get_songs():
     cursor = db.get_db().cursor()
-    cursor.execute('select distinct name from Songs')
+    cursor.execute('select distinct name, Song_ID from Songs')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -149,7 +149,7 @@ def get_songs():
 @posts.route('/prompts', methods=['GET'])
 def get_prompts():
     cursor = db.get_db().cursor()
-    cursor.execute('select distinct Prompt from Prompts')
+    cursor.execute('select distinct * from Prompts')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
