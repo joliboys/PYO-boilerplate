@@ -7,7 +7,7 @@ songs = Blueprint('Songs', __name__)
 # add a new song
 
 @songs.route('/addsong', methods=['POST'])
-def create_post():
+def create_song():
     # Get the data from the request
     data = request.get_json()
 
