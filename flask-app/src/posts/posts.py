@@ -49,6 +49,8 @@ def create_post():
     # Return a response indicating that the post has been created
     return jsonify({'message': 'Post created successfully.'})
 
+
+
 # update an existing post
 
 @posts.route('/updatepost/<int:post_id>', methods=['PUT'])
@@ -80,23 +82,22 @@ def create_comment():
     data = request.get_json()
     # Insert the new comment into the database
     cursor = db.get_db().cursor()
-    cursor.execute('INSERT INTO Comments (Comment, User_ID, Post_ID) VALUES (%s, %s, %s)',
-               (data['Comment'], data['User_ID'], data['Post_ID']))
+    cursor.execute('INSERT INTO Comments (Comment, User_ID) VALUES (%s, %s)',
+               (data['Comment'], data['User_ID']))
     db.get_db().commit()
-
-    # Return a response indicating that the comment has been created
-    return jsonify({'message': 'Comment created successfully.'})
+    # Return a response indicating that the post has been created
+    return jsonify({'message': 'Post created successfully.'})
 
 # update an existing comment
 
-@posts.route('/updatecomment<int:Comment_ID>', methods=['PUT'])
+@posts.route('/updatecomment/<int:post_id>', methods=['PUT'])
 def update_comment(Comment_id):
     # Get the data from the request
     data = request.get_json()
     # Update the post in the database
     cursor = db.get_db().cursor()
-    cursor.execute('UPDATE Comments SET Comment = %s, WHERE Comment_ID = %s',
-               (data['Comment'], Comment_id))
+    cursor.execute('UPDATE Comments SET Comment = %s, User_ID = %s WHERE Comment_ID = %s',
+               (data['Comment'], data['User_ID'], Comment_id))
     db.get_db().commit()
     # Return a response indicating that the post has been updated
     return jsonify({'message': 'Post updated successfully.'})
@@ -120,7 +121,7 @@ def get_liked_posts(user_id):
 @posts.route('/genres', methods=['GET'])
 def get_genre():
     cursor = db.get_db().cursor()
-    cursor.execute("SELECT DISTINCT Name FROM Genre")
+    cursor.execute('select distinct name from Genre')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
