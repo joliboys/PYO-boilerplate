@@ -10,20 +10,6 @@ def home():
 
 # Get all posts from the DB
 
-@posts.route('/postswname', methods=['GET'])
-def postswname():
-    cursor = db.get_db().cursor()
-    cursor.execute(query)
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
-
 # Get post with Song, genre and User Name
 
 query = ''' SELECT P.Post_ID, P.Prompt_ID, Prmpt.Prompt AS Prompt_Name,
@@ -38,6 +24,22 @@ query = ''' SELECT P.Post_ID, P.Prompt_ID, Prmpt.Prompt AS Prompt_Name,
     JOIN Profile AS Pr ON P.User_ID = Pr.User_ID
     JOIN Prompts AS Prmpt ON P.Prompt_ID = Prmpt.Prompt_ID; '''
 # delete a specific post
+
+
+@posts.route('/postswname', methods=['GET'])
+def postswname():
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 
 @posts.route('/deletepost<int:post_id>', methods=['DELETE'])
 def delete_post(post_id):
