@@ -9,7 +9,7 @@ In addition to providing a platform for music lovers to connect, PYO can also be
 
 ## User Personas
 
-This project was created with three different user personas for Playtopia in mind:
+This project was created with three different user personas for PutYouOn in mind:
 1. Casual User
 2. Music Artist
 3. Music Curator
