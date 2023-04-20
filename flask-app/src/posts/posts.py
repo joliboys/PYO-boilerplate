@@ -8,12 +8,12 @@ posts = Blueprint('Posts', __name__)
 def home():
     return ('<h1>Hello from your posts page!!</h1>')
 
-# Get all users from the DB
+# Get all posts from the DB
 
-@posts.route('/posts', methods=['GET'])
-def get_posts():
+@posts.route('/postswname', methods=['GET'])
+def postswname():
     cursor = db.get_db().cursor()
-    cursor.execute('select * from Posts')
+    cursor.execute(query)
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -24,6 +24,19 @@ def get_posts():
     the_response.mimetype = 'application/json'
     return the_response
 
+# Get post with Song, genre and User Name
+
+query = ''' SELECT P.Post_ID, P.Prompt_ID, Prmpt.Prompt AS Prompt_Name,
+        S1.Name AS Song_Name1, S2.Name AS Song_Name2, S3.Name AS Song_Name3, S4.Name AS Song_Name4,
+        G.Name AS Genre_Name, Pr.Username, P.timestamp
+    FROM Posts AS P
+    JOIN Songs AS S1 ON P.Song_ID = S1.Song_ID
+    JOIN Songs AS S2 ON P.Song_ID2 = S2.Song_ID
+    JOIN Songs AS S3 ON P.Song_ID3 = S3.Song_ID
+    JOIN Songs AS S4 ON P.Song_ID4 = S4.Song_ID
+    JOIN Genre AS G ON P.Genre_ID = G.Genre_ID
+    JOIN Profile AS Pr ON P.User_ID = Pr.User_ID
+    JOIN Prompts AS Prmpt ON P.Prompt_ID = Prmpt.Prompt_ID; '''
 # delete a specific post
 
 @posts.route('/deletepost<int:post_id>', methods=['DELETE'])
