@@ -28,7 +28,7 @@ query_song_eng = '''SELECT listens, views FROM SongEngagement
                         WHERE Song_ID = {}; '''
 
 # Get song engagement
-@artists.route('/songeng<int:songid>', methods=['GET'])
+@artists.route('/songeng<int:Song_ID>', methods=['GET'])
 def get_songeng():
     cursor = db.get_db().cursor()
     cursor.execute(query_song_eng)
