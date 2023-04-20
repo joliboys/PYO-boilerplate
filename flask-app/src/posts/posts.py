@@ -87,14 +87,14 @@ def create_comment():
 
 # update an existing comment
 
-@posts.route('/updatecomment/<int:post_id>', methods=['PUT'])
+@posts.route('/updatecomment<int:Comment_ID>', methods=['PUT'])
 def update_comment(Comment_id):
     # Get the data from the request
     data = request.get_json()
     # Update the post in the database
     cursor = db.get_db().cursor()
-    cursor.execute('UPDATE Comments SET Comment = %s, User_ID = %s WHERE Comment_ID = %s',
-               (data['Comment'], data['User_ID'], Comment_id))
+    cursor.execute('UPDATE Comments SET Comment = %s, WHERE Comment_ID = %s',
+               (data['Comment'], Comment_id))
     db.get_db().commit()
     # Return a response indicating that the post has been updated
     return jsonify({'message': 'Post updated successfully.'})
@@ -118,7 +118,7 @@ def get_liked_posts(user_id):
 @posts.route('/genres', methods=['GET'])
 def get_genre():
     cursor = db.get_db().cursor()
-    cursor.execute('select distinct name from Genre')
+    cursor.execute("SELECT DISTINCT Name FROM Genre")
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
