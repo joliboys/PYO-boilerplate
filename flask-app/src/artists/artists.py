@@ -57,7 +57,7 @@ def create_song():
     db.get_db().commit()
 
     # Return a response indicating that the post has been created
-    return jsonify({'message': 'Post created successfully.'})
+    return jsonify({'message': 'Song created successfully.'})
 
 # delete a song
 
