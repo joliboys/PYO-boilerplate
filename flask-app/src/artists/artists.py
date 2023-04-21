@@ -75,13 +75,13 @@ def create_song():
 
 # delete a song
 
-@artists.route('/deletesong<int:song_id>', methods=['DELETE'])
-def delete_song(song_id):
+@artists.route('/deletesong<int:Song_IDd>', methods=['DELETE'])
+def delete_song(Song_IDd):
     # Get a cursor object from the database
     cursor = db.get_db().cursor()
 
     # Delete the song from the database
-    cursor.execute('DELETE FROM Songs WHERE Song_ID = %s', (song_id,))
+    cursor.execute('DELETE FROM Songs WHERE Song_ID = %s', (Song_IDd))
     db.get_db().commit()
 
     # Return a response indicating that the song has been deleted
